@@ -22,7 +22,7 @@ def save_urls(file_path, urls):
         messagebox.showerror("Error", f"Error writing YAML file: {exc}")
 
 def add_url():
-    url = simpledialog.askstring("Input", "Indtast URL")
+    url = simpledialog.askstring("Input", "Enter URL")
     if url:
         listbox.insert(tk.END, url)
 
@@ -34,12 +34,12 @@ def remove_url():
 def save_config():
     urls = list(listbox.get(0, tk.END))
     save_urls(config_file, urls)
-    messagebox.showinfo("Success", "Konfigurationen er blevet gemt!")
+    messagebox.showinfo("Success", "Configuration saved!")
 
 def run_script():
     urls = list(listbox.get(0, tk.END))
     if not urls:
-        messagebox.showwarning("Warning", "Tilføj URL før du prøver at åbne")
+        messagebox.showwarning("Warning", "Add URL before opening")
         return
 
     for url in urls:
@@ -57,16 +57,16 @@ urls = load_urls(config_file)
 for url in urls:
     listbox.insert(tk.END, url)
 
-add_button = tk.Button(root, text="Tilføj URL", command=add_url)
+add_button = tk.Button(root, text="Add URL", command=add_url)
 add_button.pack(side=tk.LEFT, padx=10, pady=10)
 
-remove_button = tk.Button(root, text="Slet URL", command=remove_url)
+remove_button = tk.Button(root, text="Delete URL", command=remove_url)
 remove_button.pack(side=tk.LEFT, padx=10, pady=10)
 
-save_button = tk.Button(root, text="Gem Konfigurationen", command=save_config)
+save_button = tk.Button(root, text="Save URLS", command=save_config)
 save_button.pack(side=tk.LEFT, padx=10, pady=10)
 
-run_button = tk.Button(root, text="Opsæt browser", command=run_script)
+run_button = tk.Button(root, text="Open browser", command=run_script)
 run_button.pack(side=tk.RIGHT, padx=10, pady=10)
 
 root.mainloop()
