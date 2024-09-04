@@ -67,8 +67,6 @@ def run_script():
             webbrowser.get(chrome_path).open_new_tab(url)
         
 
-    messagebox.showinfo("Info", "URLs have been opened in your selected browsers.")
-
 root = tk.Tk()
 root.title("URL Configurator")
 
